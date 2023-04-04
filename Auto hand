@@ -1,0 +1,53 @@
+local Character = Variables.Character
+    if Character then
+        self.Using = true
+        local Starting = tick()
+        local Connections = {}
+
+        local LeftArm = Character and Character:FindFirstChild("Left Arm")
+        local RightArm = Character and Character:FindFirstChild("Right Arm")
+
+        local LeftArmDist, RightArmDist = LeftArm and (LeftArm.Position - Football.Position).Magnitude or 0, RightArm and (RightArm.Position - Football.Position).Magnitude or 0
+        local Distance = LeftArmDist <= RightArmDist and LeftArm or RightArmDist <= LeftArmDist and RightArm
+    
+        if not LeftArm or not RightArm then self.Using = false return end 
+        if not self:Validated() then self.Using = false return end 
+
+        local function StopLoop()
+            Starting = nil 
+            for _, connection in pairs(Connections) do
+                connection:Disconnect()
+            end
+            table.clear(Connections)
+            self.Using = false 
+        end
+
+        local function BallUpdate()
+            if Starting == nil then return end 
+            local Now = tick()
+
+            if (Now - Starting) > 5 then
+                StopLoop()
+                return 
+            end
+
+            if not self:Validated() then
+                StopLoop()
+                return
+            end 
+
+            if Football and Football.Parent then
+                Football.CanCollide = false 
+                firetouchinterest(Distance, Football, 0)
+                task.wait()
+                firetouchinterest(Distance, Football, 1)
+            else
+                StopLoop()
+            end
+        end
+
+        table.insert(Connections, game:GetService("RunService").RenderStepped:Connect(BallUpdate))
+        table.insert(Connections, game:GetService("RunService").Stepped:Connect(BallUpdate))
+        table.insert(Connections, game:GetService("RunService").Heartbeat:Connect(BallUpdate))
+    end
+end
