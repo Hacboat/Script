@@ -1,0 +1,42 @@
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local window = library.CreateLib("Football fusion 2 | Fwuxus","DarkTheme")
+ 
+---Tabs
+
+local Tab1 = window:NewTab("Main balls")
+local Tab1Section = Tab1:NewSection("Main")
+local Tab2 = window:NewTab("Main others")
+local Tab2Section = Tab2:NewSection("Main")
+local Tab3 = window:NewTab("Main Settings")
+local Tab3Section = Tab3:NewSection("Main")
+local Tab3Section = Tab3:NewSection("Credits By Hacboat")
+local Tab3Section = Tab3:NewSection("Bypassed anti ban&cheat")
+
+---Buttons/Windows/mobile/idk
+
+Tab1Section:NewButton("Mag v2" , "Mag for ball",function(state)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hacboat/Script/main/Mag%20v5%22"))();
+end)
+
+Tab1Section:NewButton("auto Hand v2", "Ball Hawk", 50, 10, function(state)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hacboat/Script/main/Auto%20hand"))();
+end)
+
+Tab1Section:NewLabel("Silder part")
+
+Tab1Section:NewSlider("25-50 Mag Silder", "Silder Mag", 50, 25, function(s)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hacboat/Script/main/Mag%20v5%22"))(); = v
+end)
+
+Tab1Section:NewSlider("15-45 auto Hand Silder", "Silder Auto hand", 45, 15, function(s)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Hacboat/Script/main/Auto%20hand"))(); = v
+end)
+
+Tab2Section:NewButton("InfJump","GivesUnlimitedJump",function()
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
