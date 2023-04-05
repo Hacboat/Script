@@ -1,0 +1,26 @@
+local ClosestDistance = math.huge; local ClosestFootball = nil; 
+    for _, Part in pairs(workspace:GetChildren()) do
+        if Part.Name == "Football" and Part:IsA("BasePart") then
+            local RootPart = (Variables.Character and Variables.Character.PrimaryPart)
+            if (RootPart) then
+                local Distance =  RootPart and (RootPart.Position - Part["Position"]).Magnitude or 0
+                if Distance < ClosestDistance and Distance < DistanceSlider.Value then
+                    ClosestFootball = Part 
+                    ClosestDistance = Distance 
+                end
+            end
+        end
+    end
+
+    if (ClosestFootball) then
+        self:Mag(ClosestFootball)
+    end
+end
+
+do
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if Variables.CatchingTab.Flags["Mags_Enabled"] then
+            Mags:Activate()
+        end
+    end)
+end
