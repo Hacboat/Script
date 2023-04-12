@@ -1,0 +1,49 @@
+local kavoUi = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local window = kavoUi.CreateLib("Vape V4","DarkTheme")
+ 
+---Tabs
+ 
+local Tab1 = window:NewTab("Main")
+local Tab1Section = Tab1:NewSection("Main Bypass")
+local Tab2 = window:NewTab("Credits")
+local Tab2Section = Tab2:NewSection("Owner By Easy | Moonz")
+local Tab2Section = Tab2:NewSection("Scripter By Moonz7276")
+ 
+---Buttons
+
+Tab1Section:NewSlider("120-89 | Fov Changes", "?", 120, 89, function(s)
+game.Workspace.CurrentCamera.FieldOfView = s
+end)
+
+Tab1Section:NewToggle("Keyboard", "?", function(state)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+Tab1Section:NewToggle("Vapev4", "?", function(state)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+end)
+
+Tab1Section:NewToggle("SS Gamepass" , "Gamepass", function()
+local mt = getrawmetatable(game);
+local old = mt.__namecall
+local readonly = setreadonly or make_writeable
+
+local MarketplaceService = game:GetService("MarketplaceService");
+
+readonly(mt, false);
+
+mt.__namecall = function(self, ...)
+  local args = {...}
+  local method = table.remove(args)
+
+  if (self == MarketplaceService and method:find("UserOwnsGamePassAsync")) then
+      return true
+  end
+
+  return old(self, ...)
+end
+end)
+
+Tab1Section:NewToggle("Infinitelyield" , "Opens op", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
