@@ -1,0 +1,72 @@
+local kavoUi = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local window = kavoUi.CreateLib("XD - XuxusDavid","DarkTheme")
+ 
+---Tabs
+ 
+local Tab1 = window:NewTab("Main")
+local Tab1Section = Tab1:NewSection("Main others")
+local Tab2 = window:NewTab("Credits")
+local Tab2Section = Tab2:NewSection("Owner By GAGNON")
+local Tab2Section = Tab2:NewSection("Scripter By Moonz7276")
+ 
+---Buttons
+
+Tab1Section:NewSlider("120-89 | Fov Changes", "?", 120, 89, function(s)
+game.Workspace.CurrentCamera.FieldOfView = s
+end)
+
+Tab1Section:NewButton("Keyboard", "?", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+Tab1Section:NewButton("Vapev4", "?", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+end)
+
+Tab1Section:NewButton("SS Gamepass" , "Gamepass", function()
+local mt = getrawmetatable(game);
+local old = mt.__namecall
+local readonly = setreadonly or make_writeable
+
+local MarketplaceService = game:GetService("MarketplaceService");
+
+readonly(mt, false);
+
+mt.__namecall = function(self, ...)
+  local args = {...}
+  local method = table.remove(args)
+
+  if (self == MarketplaceService and method:find("UserOwnsGamePassAsync")) then
+      return true
+  end
+
+  return old(self, ...)
+end
+end)
+
+Tab1Section:NewButton("Infinitelyield" , "Opens op", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+Tab1Section:NewButton("pbs toilet spam | step 2 " , "?", function()
+local LP = game.Players.LocalPlayer
+game.ReplicatedStorage.ToolEvents.TpRollEvent:FireServer()
+repeat wait() until LP.Character
+for i,v in pairs(LP.Backpack:GetChildren()) do
+   if v.Name == "TpRoll" then
+       v.Parent = LP.Character
+   end
+end
+while true do
+   wait()
+   for i,v in pairs (LP.Character:GetChildren()) do
+       if v.Name == "TpRoll" then
+           v:Activate()
+       end
+   end
+end
+end)
+
+Tab1Section:NewToggle("pbs toilet spam | step1" , "?", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/Vkyhc6dK",true))()
+end)
