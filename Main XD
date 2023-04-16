@@ -47,26 +47,3 @@ end)
 Tab1Section:NewToggle("Infinitelyield" , "Opens op", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
-
-Tab1Section:NewToggle("pbs toilet spam | step 2 , "?", function()
-local LP = game.Players.LocalPlayer
-game.ReplicatedStorage.ToolEvents.TpRollEvent:FireServer()
-repeat wait() until LP.Character
-for i,v in pairs(LP.Backpack:GetChildren()) do
-   if v.Name == "TpRoll" then
-       v.Parent = LP.Character
-   end
-end
-while true do
-   wait()
-   for i,v in pairs (LP.Character:GetChildren()) do
-       if v.Name == "TpRoll" then
-           v:Activate()
-       end
-   end
-end
-end)
-
-Tab1Section:NewToggle("pbs toilet spam | step1" , "?", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/Vkyhc6dK",true))()
-end)
