@@ -52,7 +52,7 @@ end
 
 end)
 
-Tab1Section:Label("Bedwars")
+Tab1Section:NewLabel("Bedwars")
 
 Tab1Section:NewButton("Vapev4", "?", function()
 
@@ -78,7 +78,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/VeztWare/Vezt/main/Ve
 
 end)
 
-Tab1Section:Label("FE swear")
+Tab1Section:NewLabel("FE swear")
 
 Tab1Section:NewButton("AZY - chatbypass" , "?", function()
 
@@ -92,7 +92,7 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/vqmpjay/chatbypasser
 
 end)
 
-Tab1Section:Label("Break Points")
+Tab1Section:NewLabel("Break Points")
 
 Tab1Section:NewButton("Funny Squid Hax" , "?", function()
 
@@ -106,7 +106,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/H4R7NHacks/Obfuscated
 
 end)
 
-Tab1Section:Label("bathroom simulator")
+Tab1Section:NewLabel("bathroom simulator")
 
 Tab1Section:NewButton("spam toilets" , "?", function()
 
