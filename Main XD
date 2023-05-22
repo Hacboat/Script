@@ -14,6 +14,7 @@ local Tab1Section = Tab1:NewSection("School simulator")
 
 local Tab2 = window:NewTab("Setting")
 
+17loacl Tab2Section = Tab2:NewSection("Setting")
 
 ---Buttons
 
