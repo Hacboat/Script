@@ -14,11 +14,6 @@ local Tab1Section = Tab1:NewSection("School simulator")
 
 local Tab2 = window:NewTab("Setting")
 
-local Tab2Section = Tab2:NewSection("Owner By GAGNON")
-
-local Tab2Section = Tab2:NewSection("Scripter By Moonz7276")
-
- 
 
 ---Buttons
 
