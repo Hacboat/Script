@@ -1,20 +1,34 @@
 local kavoUi = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
 
-local window = kavoUi.CreateLib("LightDavid v0.7","LightTheme")
-
- 
+local Window = Library.CreateLib("ViperWare", dark Blue)
 
 ---Tabs
 
- 
+local Tab1 = window:NewTab("Welcome, loacl player = game.Player.LocalPlayer script.Parent.Text = Player.name")
 
-local Tab1 = window:NewTab("Main")
+local Tab1Section = Tab1:NewSection("Welcome")
 
-local Tab1Section = Tab1:NewSection("School simulator")
+local Tab2 = window:NewTab("Settings")
 
-local Tab2 = window:NewTab("Setting")
+local Tab2Section = Tab2:NewSection("ss")
 
-17loacl Tab2Section = Tab2:NewSection("Setting")
+local Tab3 = window:NewTab("Setting")
+
+loacl Tab3Section = Tab3:NewSection("ss")
+
+local colors = {
+
+    SchemeColor = Color3.fromRGB(0 ,0 ,0),
+
+    Background = Color3.fromRGB(0, 0, 0),
+
+    Header = Color3.fromRGB(0, 0, 82),
+
+    TextColor = Color3.fromRGB(255,255,255),
+
+    ElementColor = Color3.fromRGB(0, 0, 82)
+
+}
 
 ---Buttons
 
@@ -231,5 +245,3 @@ Light.LightingChanged:Connect(dofullbright)
 end)
 
 Tab2Section:NewLabel("Credits")
-
-Tab2Section:NewLabel("Made By CrowEZ")
