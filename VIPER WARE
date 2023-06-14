@@ -1,0 +1,385 @@
+local kavoUi = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+
+local Window = Library.CreateLib("ViperWare V0.3", "DarkTheme")
+
+---Tabs
+
+local Tab1 = window:NewTab("Updated Script")
+
+local Tab1Section = Tab1:NewSection("Updated")
+
+local Tab2 = window:NewTab("Settings")
+
+local Tab2Section = Tab2:NewSection("PlayerGui")
+
+local Tab3 = window:NewTab("Gui And Hub")
+
+local Tab3Section = Tab3:NewSection("Bedwars")
+
+local Tab4 = window:NewTab("Fe Scripter")
+
+local Tab4Section = Tab4:NewSection("Fe Scripter")
+
+local colors = {
+
+    SchemeColor = Color3.fromRGB(0 ,0 ,0),
+
+    Background = Color3.fromRGB(0, 0, 0),
+
+    Header = Color3.fromRGB(0, 0, 82),
+
+    TextColor = Color3.fromRGB(255,255,255),
+
+    ElementColor = Color3.fromRGB(0, 0, 82)
+
+}
+
+---Buttons
+
+Tab1Section:NewLabel("Updating is 6-14-2023")
+
+Tab1Section:NewLabel("Button Was Added More!")
+
+Tab2Section:NewSlider("120-50 | Fov Changes", "?", 120, 50, function(s)
+
+game.Workspace.CurrentCamera.FieldOfView = s
+
+end)
+
+Tab2Section:NewSlider("250-18 | Speed", "?", 250, 18, function(s)
+
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+
+end)
+
+Tab2Section:NewSlider("450-50 | Jump", "?", 350, 50, function(s)
+
+game.Players.LocalPlayer.Character.Humanoid.Jumphigh = s
+
+end)
+
+Tab2Section:NewButton("InfJump","GivesUnlimitedJump",function()
+
+local InfiniteJumpEnabled = true
+
+game:GetService("UserInputService").JumpRequest:connect(function()
+
+	if InfiniteJumpEnabled then		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")	end
+
+end)
+
+end)
+
+Tab2Section:NewLabel("World")
+
+Tab2Section:NewButton("Anti Lag" , "Lag",function()
+
+print("Started")
+
+wait()
+
+local tabz = game:GetService("VirtualUser")
+
+while wait() do
+
+game.Workspace.Parts:ClearAllChildren()
+
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+
+tabz:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+
+wait(1)
+
+tabz:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+
+end
+
+end 
+
+end)
+
+Tab2Section:NewButton("Fulbright" , "Dark to light",function()
+
+local Light = game:GetService("Lighting")
+
+function dofullbright()
+
+Light.Ambient = Color3.new(9, 9, 10)
+
+Light.ColorShift_Bottom = Color3.new(0, 0, 0)
+
+Light.ColorShift_Top = Color3.new(0, 0, 0)
+
+end
+
+dofullbright()
+
+Light.LightingChanged:Connect(dofullbright)
+
+end)
+
+Tab2Section:NewLabel("Credits")
+
+Tab2Section:NewLabel("Made By STARwhite")
+
+Tab2Section:NewLabel("Helping By Moonz7276")
+
+Tab3Section:NewButton("Bedwars Bypass AC" , "made by STARwhite", function()
+
+game.StarterGui:SetCore("SendNotification", {
+
+    Title = "Bedwars AntiCheat";
+
+    Text = "Loading..."; -- what the text says (ofc)
+
+    Duration = 10;
+
+})
+
+wait(2)
+
+local ScreenGui = Instance.new("ScreenGui")
+
+local Main = Instance.new("Frame")
+
+local TextLabel = Instance.new("TextLabel")
+
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Main.Name = "Main"
+
+Main.Parent = ScreenGui
+
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 245)
+
+Main.Position = UDim2.new(0.363293529, 0, 0.28638497, 0)
+
+Main.Size = UDim2.new(0, 300, 0, 154)
+
+Main.Style = Enum.FrameStyle.ChatRed
+
+TextLabel.Parent = Main
+
+TextLabel.BackgroundColor3 = Color3.fromRGB(17, 1, 1)
+
+TextLabel.BackgroundTransparency = 1.000
+
+TextLabel.Position = UDim2.new(-0.025588274, 0, -0.0890700519, 0)
+
+TextLabel.Size = UDim2.new(0, 250, 0, 30)
+
+TextLabel.Font = Enum.Font.SciFi
+
+TextLabel.Text = "Bedwars Bypass Anticheat"
+
+TextLabel.TextColor3 = Color3.fromRGB(245, 16, 16)
+
+TextLabel.TextScaled = true
+
+TextLabel.TextSize = 11.000
+
+TextLabel.TextWrapped = true
+
+TextButton.Parent = Main
+
+TextButton.BackgroundColor3 = Color3.fromRGB(17, 1, 1)
+
+TextButton.Position = UDim2.new(0.136470661, 0, 0.458670378, 0)
+
+TextButton.Size = UDim2.new(0, 200, 0, 58)
+
+TextButton.Style = Enum.ButtonStyle.RobloxRoundDefaultButton
+
+TextButton.Font = Enum.Font.SciFi
+
+TextButton.Text = "Click To Start 5STARexploti"
+
+TextButton.TextColor3 = Color3.fromRGB(255,255,255)
+
+TextButton.TextScaled = true
+
+TextButton.TextSize = 13.000
+
+TextButton.TextWrapped = true
+
+TextButton.MouseButton1Down:connect(function()
+
+ while true do wait() game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20 end
+
+ wait(0.4)
+
+Walkspeed()
+
+end)
+
+-- Scripts:
+
+local function LASGYB_fake_script() -- ScreenGui.Script 
+
+	local script = Instance.new('Script', ScreenGui)
+
+	frame = script.Parent.Main -- Take out {}s, and put name of frame
+
+	frame.Draggable = true
+
+	frame.Active = true
+
+	frame.Selectable = true
+
+end
+
+coroutine.wrap(LASGYB_fake_script)()
+
+local InfiniteJumpEnabled = true
+
+game:GetService("UserInputService").JumpRequest:connect(function()
+
+	if InfiniteJumpEnabled then
+
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+
+	end
+
+end)
+
+shared.enabled = W
+
+game:GetService("RunService").heartbeat:connect(function()
+
+if not shared.enabled then return end
+
+game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.GroundHit:FireServer(workspace.Map.Blocks,1645488277.345853)
+
+wait(0.1)
+
+end)
+
+end)
+
+Tab3Section:NewButton("Vapev4", "Made By 7GRANDDAD", function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+
+end)
+
+Tab3Section:NewButton("JNHHG Click" , "Made by JN HH GAMING", function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JNHHGaming/JN-HH-Gaming-1-Click/main/JN%20HH%20Gaming%201%20Click",true))()
+
+end)
+
+Tab3Section:NewButton("Vezt" , "Made by Hamza", function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/VeztWare/Vezt/main/Vezt%20-%20Bedwars.lua"))()
+
+end)
+
+Tab3Section:NewButton("MightBeds" , "Made by Monie/NTD", function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/NightbedForRoblox/main/MainScript.lua", true))()
+
+end)
+
+Tab3Section:NewLabel("School simulator")
+
+Tab3Section:NewButton("SS Gamepass" , "Gamepass", function()
+
+local mt = getrawmetatable(game);
+
+local old = mt.__namecall
+
+local readonly = setreadonly or make_writeable
+
+local MarketplaceService = game:GetService("MarketplaceService");
+
+readonly(mt, false);
+
+mt.__namecall = function(self, ...)
+
+  local args = {...
+
+  local method = table.remove(args)
+
+  if (self == MarketplaceService and method:find("UserOwnsGamePassAsync")) then
+
+  
+
+      return true
+
+  end
+
+  return old(self, ...)
+
+end
+
+end)
+
+Tab3Section:NewLabel("Break Points")
+
+Tab3Section:NewButton("Funny Squid Hax" , "Made by ???", function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ColdStep2/Breaking-Point-Funny-Squid-Hax/main/Breaking%20Point%20Funny%20Squid%20Hax",true))();
+
+end)
+
+Tab3Section:NewButton("master" , "Made by ???", function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/H4R7NHacks/Obfuscated/master/Breaking%20Point%20H4R7N%20Hack%20v1.2.lua"))()
+
+end)
+
+Tab3Section:NewLabel("bathroom simulator")
+
+Tab3Section:NewButton("spam toilets" , "?", function()
+
+local LP = game.Players.LocalPlayer
+
+game.ReplicatedStorage.ToolEvents.TpRollEvent:FireServer()
+
+repeat wait() until LP.Character
+
+for i,v in pairs(LP.Backpack:GetChildren()) do
+
+   if v.Name == "TpRoll" then
+
+       v.Parent = LP.Character
+
+       
+
+   end
+
+end
+
+while true do
+
+   wait()
+
+   for i,v in pairs (LP.Character:GetChildren()) do
+
+       if v.Name == "TpRoll" then
+
+           v:Activate()
+
+       end
+
+   end
+
+end
+
+end)
+
+Tab4Section:NewButton("FE swear // AZY" , "Made by ???", function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/ChatBypasser-AZY/main/Chat%20Bypass%20-%20ChatSplitter(Source).lua"))()
+
+end)
+
+Tab4Section:NewButton(" FE swear // vqmpjay" , "Made by ???", function()
+
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/vqmpjay/chatbypasser/main/chatbypasserv1'),true))()
+
+end)
