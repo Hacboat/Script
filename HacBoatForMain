@@ -1,0 +1,121 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+
+ 
+
+local Window = Library.CreateLib("DragonWare V0.4", "Serpent")
+
+ 
+
+ 
+
+--Ctabs (done)
+
+local CTab = Window:NewTab("Combat")
+
+local CSection = CTab:NewSection("Sprint")
+
+ 
+
+CSection:NewToggle("Sprint", "automatically Sprint run", function(callback)
+
+    game.StarterGui:SetCore("SendNotification", {
+
+    Title = "DragonWare V0.4";
+
+    Text = "Sprint was ON"; -- what the text says (ofc)
+
+    Duration = 5;
+
+})
+
+wait(0.5)
+
+if callback then
+
+				oldSprintFunction = bedwars.SprintController.stopSprinting				bedwars.SprintController.stopSprinting = function(...)
+
+					local originalCall = oldSprintFunction(...)
+
+					bedwars.SprintController:startSprinting()
+
+					return originalCall
+
+				end
+
+				table.insert(Sprint.Connections, lplr.CharacterAdded:Connect(function(char)
+
+					char:WaitForChild("Humanoid", 9e9)
+
+					task.wait(0.5)
+
+					bedwars.SprintController:stopSprinting()
+
+				end))
+
+				task.spawn(function()
+
+					bedwars.SprintController:startSprinting()
+
+				end)
+
+			else
+
+				bedwars.SprintController.stopSprinting = oldSprintFunction
+
+				bedwars.SprintController:stopSprinting()
+
+end)
+
+CSection:NewLabel("Velocity")
+
+CSection:NewToggle("Velocity" ,"make you anti knock back", function()
+
+    if callback then
+
+				applyKnockback = bedwars.KnockbackUtil.applyKnockback
+
+				bedwars.KnockbackUtil.applyKnockback = function(root, mass, dir, knockback, ...)
+
+					knockback = knockback or {}
+
+					if VelocityHorizontal.Value == 0 and VelocityVertical.Value == 0 then return end
+
+					knockback.horizontal = (knockback.horizontal or 1) * (VelocityHorizontal.Value / 100)
+
+					knockback.vertical = (knockback.vertical or 1) * (VelocityVertical.Value / 100)
+
+					return applyKnockback(root, mass, dir, knockback, ...)
+
+				end
+
+			else
+
+				bedwars.KnockbackUtil.applyKnockback = applyKnockback
+
+			end
+
+end)
+
+CSection:NewLabel("ACcheck")
+
+CSection:NewToggle("ACcheck", "setting AC", function()
+
+end)
+
+CSection:NewLabel("Reach")
+
+ 
+
+CSection:NewToggle("Reach", "Make you be Reach", function(callback)
+
+    if callback then
+
+				bedwars.CombatConstant.RAYCAST_SWORD_CHARACTER_DISTANCE = ReachValue.Value + 2
+
+			else
+
+				bedwars.CombatConstant.RAYCAST_SWORD_CHARACTER_DISTANCE = 14.4
+
+			end
+
+end)
